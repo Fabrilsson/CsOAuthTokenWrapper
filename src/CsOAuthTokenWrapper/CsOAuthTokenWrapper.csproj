@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>CsOAuthTokenWrapper</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Fabrilsson</Authors>
+		<RepositoryUrl>https://github.com/Fabrilsson/CsOAuthTokenWrapper</RepositoryUrl>
+		<PackageTags>oauth jwt authentication asp .net c# net6</PackageTags>
+		<Description>
+			Supports custom IDP application token acquisition with configurable cache.
+		</Description>
+	</PropertyGroup>
+
+</Project>
