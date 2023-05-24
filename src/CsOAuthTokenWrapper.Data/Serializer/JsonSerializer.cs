@@ -2,7 +2,7 @@
 
 namespace CsOAuthTokenWrapper.Data.Serializer
 {
-    internal class JsonSerializer
+    public class JsonSerializer : IJsonSerializer
     {
         public T Deserialize<T>(string item)
         {

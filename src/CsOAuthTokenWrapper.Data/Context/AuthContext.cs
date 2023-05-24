@@ -6,7 +6,7 @@ using CsOAuthTokenWrapper.Data.Serializer;
 
 namespace CsOAuthTokenWrapper.Data.Context
 {
-    internal class AuthContext
+    public class AuthContext : IAuthContext
     {
         private readonly IAuthNetworkClient _authNetworkClient;
         private readonly IJsonSerializer _serializer;
@@ -14,7 +14,7 @@ namespace CsOAuthTokenWrapper.Data.Context
         private readonly string _clientSecret;
         private readonly string _scope;
         private readonly string _grantType;
-        private readonly string _authority;
+        private readonly string _oAuthTokenEndPoint;
 
         internal AuthContext(
             IAuthNetworkClient authNetworkClient,
@@ -31,14 +31,14 @@ namespace CsOAuthTokenWrapper.Data.Context
             _clientSecret = clientSecret;
             _scope = scope;
             _grantType = grantType;
-            _authority = authority;
+            _oAuthTokenEndPoint = authority;
         }
 
-        internal async Task<AuthResult> AcquireTokenAsync()
+        public async Task<AuthResult> AcquireTokenAsync()
         {
             var request = new OAuthTokenRequest(_clientId, _clientSecret, _scope, _grantType);
 
-            using var resource = new OAuthTokenResource(_serializer, request);
+            using var resource = new OAuthTokenResource(_serializer, request, _oAuthTokenEndPoint);
 
             var response = await _authNetworkClient.RemoteCallAsync<AuthResult>(resource);
 

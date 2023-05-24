@@ -5,9 +5,9 @@ namespace CsOAuthTokenWrapper.Data.Resources
 {
     internal class OAuthTokenResource : JsonResource
     {
-        public OAuthTokenResource(IJsonSerializer jsonSerializer, object body) : base(jsonSerializer, body)
+        public OAuthTokenResource(IJsonSerializer jsonSerializer, object body, string uri) : base(jsonSerializer, body)
         {
-            Uri = "oauth2/token";
+            Uri = uri;
         }
     }
 }

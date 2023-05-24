@@ -1,6 +1,6 @@
 ﻿namespace CsOAuthTokenWrapper.Data.Serializer
 {
-    internal interface IJsonSerializer
+    public interface IJsonSerializer
     {
         T? Deserialize<T>(string item);
         string? Serialize(object item);

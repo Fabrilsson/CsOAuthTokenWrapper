@@ -2,7 +2,7 @@
 
 namespace CsOAuthTokenWrapper.Data.Client
 {
-    internal class AuthNetworkClient : NetworkClient, IAuthNetworkClient
+    public class AuthNetworkClient : NetworkClient, IAuthNetworkClient
     {
         public AuthNetworkClient(HttpClient httpClient, string uri) : base(httpClient)
         {

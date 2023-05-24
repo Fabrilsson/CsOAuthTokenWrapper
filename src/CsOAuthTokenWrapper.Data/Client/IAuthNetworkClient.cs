@@ -2,7 +2,7 @@
 
 namespace CsOAuthTokenWrapper.Data.Client
 {
-    internal interface IAuthNetworkClient
+    public interface IAuthNetworkClient
     {
         Task<T> RemoteCallAsync<T>(IResource resource) where T : class;
     }
