@@ -1,6 +1,6 @@
 ﻿namespace CsOAuthTokenWrapper.Data.Result
 {
-    public class AuthResult
+    public sealed class AuthResult
     {
         public string? AccessTokenType { get; }
 
@@ -16,7 +16,7 @@
 
         public string? Authority { get; }
 
-        public AuthResult(
+        internal AuthResult(
             string? accessTokenType,
             string? accessToken,
             DateTimeOffset expiresOn,

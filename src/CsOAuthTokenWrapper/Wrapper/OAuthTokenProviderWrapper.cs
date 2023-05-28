@@ -1,9 +1,9 @@
 using CsOAuthTokenWrapper.Data.Provider;
 using CsOAuthTokenWrapper.Data.Result;
 
-namespace CsOAuthTokenWrapper
+namespace CsOAuthTokenWrapper.Wrapper
 {
-    public class OAuthTokenProviderWrapper
+    public class OAuthTokenProviderWrapper : IOAuthTokenProviderWrapper
     {
         private readonly IAuthTokenProvider _authTokenProvider;
 

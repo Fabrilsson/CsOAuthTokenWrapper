@@ -16,7 +16,7 @@ namespace CsOAuthTokenWrapper.Data.Resources.Common
 
         public HttpContent Content { get; }
 
-        public JsonResource(IJsonSerializer jsonSerializer, object body)
+        internal JsonResource(IJsonSerializer jsonSerializer, object body)
         {
             Content = new StringContent(jsonSerializer.Serialize(body), Encoding.UTF8, "application/json");
         }

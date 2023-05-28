@@ -2,7 +2,7 @@ using CsOAuthTokenWrapper.Data.Result;
 
 namespace CsOAuthTokenWrapper.Data.Context
 {
-    public interface IAuthContext
+    internal interface IAuthContext
     {
         Task<AuthResult> AcquireTokenAsync();
     }

@@ -1,18 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using CsOAuthTokenWrapper.Data.Client;
 using CsOAuthTokenWrapper.Data.Context;
 using CsOAuthTokenWrapper.Data.Provider;
 using CsOAuthTokenWrapper.Data.Serializer;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CsOAuthTokenWrapper
+namespace CsOAuthTokenWrapper.Data.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddOAuthTokenWrapper(this IServiceCollection services)
+        public static IServiceCollection AddDataDependencies(this IServiceCollection services)
         {
             services.AddSingleton<HttpClient>();
             services.AddScoped<IAuthNetworkClient, AuthNetworkClient>();

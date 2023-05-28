@@ -2,7 +2,7 @@
 
 namespace CsOAuthTokenWrapper.Data.Requests
 {
-    internal class OAuthTokenRequest
+    internal sealed class OAuthTokenRequest
     {
         [JsonProperty("client_id")]
         public string? ClientID { get; }
@@ -16,7 +16,7 @@ namespace CsOAuthTokenWrapper.Data.Requests
         [JsonProperty("grant_type")]
         public string? GrantType { get; }
 
-        public OAuthTokenRequest(
+        internal OAuthTokenRequest(
             string? clientID,
             string? clientSecret,
             string? scope,

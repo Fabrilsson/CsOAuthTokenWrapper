@@ -3,9 +3,9 @@ using CsOAuthTokenWrapper.Data.Serializer;
 
 namespace CsOAuthTokenWrapper.Data.Resources
 {
-    internal class OAuthTokenResource : JsonResource
+    internal sealed class OAuthTokenResource : JsonResource
     {
-        public OAuthTokenResource(IJsonSerializer jsonSerializer, object body, string uri) : base(jsonSerializer, body)
+        internal OAuthTokenResource(IJsonSerializer jsonSerializer, object body, string uri) : base(jsonSerializer, body)
         {
             Uri = uri;
         }

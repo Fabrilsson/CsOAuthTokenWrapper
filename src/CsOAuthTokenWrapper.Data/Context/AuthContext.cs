@@ -6,7 +6,7 @@ using CsOAuthTokenWrapper.Data.Serializer;
 
 namespace CsOAuthTokenWrapper.Data.Context
 {
-    public class AuthContext : IAuthContext
+    internal sealed class AuthContext : IAuthContext
     {
         private readonly IAuthNetworkClient _authNetworkClient;
         private readonly IJsonSerializer _serializer;
