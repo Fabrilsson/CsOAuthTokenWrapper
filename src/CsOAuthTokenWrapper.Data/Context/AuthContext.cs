@@ -16,7 +16,7 @@ namespace CsOAuthTokenWrapper.Data.Context
         private readonly string _grantType;
         private readonly string _oAuthTokenEndPoint;
 
-        internal AuthContext(
+        public AuthContext(
             IAuthNetworkClient authNetworkClient,
             IJsonSerializer jsonSerializer,
             IAuthenticationOptions authenticationOptions)

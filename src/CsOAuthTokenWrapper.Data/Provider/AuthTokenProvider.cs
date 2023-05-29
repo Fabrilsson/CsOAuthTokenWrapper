@@ -5,13 +5,13 @@ using Polly.Timeout;
 
 namespace CsOAuthTokenWrapper.Data.Provider
 {
-    public sealed class AuthTokenProvider : IAuthTokenProvider
+    internal sealed class AuthTokenProvider : IAuthTokenProvider
     {
         private static readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
         private static AuthResult? _authResult;
         private readonly IAuthContext _authContext;
 
-        internal AuthTokenProvider(IAuthContext authContext)
+        public AuthTokenProvider(IAuthContext authContext)
         {
             _authContext = authContext;
         }

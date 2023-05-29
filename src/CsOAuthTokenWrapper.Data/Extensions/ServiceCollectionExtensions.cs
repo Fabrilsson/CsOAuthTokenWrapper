@@ -13,7 +13,7 @@ namespace CsOAuthTokenWrapper.Data.Extensions
             services.AddSingleton<HttpClient>();
             services.AddScoped<IAuthNetworkClient, AuthNetworkClient>();
             services.AddScoped<IJsonSerializer, JsonSerializer>();
-            services.AddScoped<IAuthenticationOptions, AuthenticationOptions>();
+            services.AddSingleton(authenticationOptions);
             services.AddScoped<IAuthContext, AuthContext>();
             services.AddScoped<IAuthTokenProvider, AuthTokenProvider>();
 
