@@ -19,19 +19,15 @@ namespace CsOAuthTokenWrapper.Data.Context
         internal AuthContext(
             IAuthNetworkClient authNetworkClient,
             IJsonSerializer jsonSerializer,
-            string clientId,
-            string clientSecret,
-            string scope,
-            string grantType,
-            string authority)
+            IAuthenticationOptions authenticationOptions)
         {
             _authNetworkClient = authNetworkClient;
             _serializer = jsonSerializer;
-            _clientId = clientId;
-            _clientSecret = clientSecret;
-            _scope = scope;
-            _grantType = grantType;
-            _oAuthTokenEndPoint = authority;
+            _clientId = authenticationOptions.ClientId;
+            _clientSecret = authenticationOptions.ClientSecret;
+            _scope = authenticationOptions.Scope;
+            _grantType = authenticationOptions.GrantType;
+            _oAuthTokenEndPoint = authenticationOptions.OAuthTokenEndPoint;
         }
 
         public async Task<AuthResult> AcquireTokenAsync()

@@ -8,11 +8,12 @@ namespace CsOAuthTokenWrapper.Data.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddDataDependencies(this IServiceCollection services)
+        public static IServiceCollection AddDataDependencies(this IServiceCollection services, IAuthenticationOptions authenticationOptions)
         {
             services.AddSingleton<HttpClient>();
             services.AddScoped<IAuthNetworkClient, AuthNetworkClient>();
             services.AddScoped<IJsonSerializer, JsonSerializer>();
+            services.AddScoped<IAuthenticationOptions, AuthenticationOptions>();
             services.AddScoped<IAuthContext, AuthContext>();
             services.AddScoped<IAuthTokenProvider, AuthTokenProvider>();
 
