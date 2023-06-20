@@ -4,17 +4,13 @@ namespace CsOAuthTokenWrapper.Data.Requests
 {
     internal sealed class OAuthTokenRequest
     {
-        [JsonProperty("client_id")]
-        public string? ClientID { get; }
+        public string? client_id { get; }
 
-        [JsonProperty("client_secret")]
-        public string? ClientSecret { get; }
+        public string? client_secret { get; }
 
-        [JsonProperty("scope")]
-        public string? Scope { get; }
+        public string? scope { get; }
 
-        [JsonProperty("grant_type")]
-        public string? GrantType { get; }
+        public string? grant_type { get; }
 
         internal OAuthTokenRequest(
             string? clientID,
@@ -22,10 +18,10 @@ namespace CsOAuthTokenWrapper.Data.Requests
             string? scope,
             string? grantType)
         {
-            ClientID = clientID;
-            ClientSecret = clientSecret;
-            Scope = scope;
-            GrantType = grantType;
+            this.client_id = clientID;
+            this.client_secret = clientSecret;
+            this.scope = scope;
+            this.grant_type = grantType;
         }
     }
 }

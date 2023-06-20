@@ -50,20 +50,10 @@ namespace CsOAuthTokenWrapper.Network
 
             var request = new HttpRequestMessage(resource.Method, requestUri)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(resource.Content), Encoding.UTF8, resource.ContentType)
+                Content = resource.Content
             };
 
             return request;
-        }
-
-        private static Uri BuildUri(Uri requestUri, Dictionary<string, object> parameters)
-        {
-            if (requestUri == null)
-                throw new ArgumentNullException(nameof(requestUri));
-
-            requestUri = new Uri(string.Format(requestUri.OriginalString, parameters.FirstOrDefault().Value));
-
-            return requestUri;
         }
     }
 }

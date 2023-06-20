@@ -1,37 +1,26 @@
-﻿namespace CsOAuthTokenWrapper.Data.Result
+﻿using Newtonsoft.Json;
+
+namespace CsOAuthTokenWrapper.Data.Result
 {
     public sealed class AuthResult
     {
+        [JsonProperty("token_type")]
         public string? AccessTokenType { get; }
 
+        [JsonProperty("access_token")]
         public string? AccessToken { get; }
 
-        public DateTimeOffset ExpiresOn { get; }
+        [JsonProperty("expires_in")]
+        public double ExpiresIn { get; }
 
-        public bool ExtendedLifeTimeToken { get; }
-
-        public string? TenantId { get; }
-
-        public string? IdToken { get; }
-
-        public string? Authority { get; }
-
-        internal AuthResult(
+        public AuthResult(
             string? accessTokenType,
             string? accessToken,
-            DateTimeOffset expiresOn,
-            bool extendedLifeTimeToken,
-            string? tenantId,
-            string? idToken,
-            string? authority)
+            double expiresIn)
         {
             AccessTokenType = accessTokenType;
             AccessToken = accessToken;
-            ExpiresOn = expiresOn;
-            ExtendedLifeTimeToken = extendedLifeTimeToken;
-            TenantId = tenantId;
-            IdToken = idToken;
-            Authority = authority;
+            ExpiresIn = expiresIn;
         }
     }
 }
