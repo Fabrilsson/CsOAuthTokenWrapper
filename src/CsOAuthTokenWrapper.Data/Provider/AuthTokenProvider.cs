@@ -18,13 +18,13 @@ namespace CsOAuthTokenWrapper.Data.Provider
 
         public AuthResult GetAccessToken(int timeoutBudget = 30)
         {
-            if (_authResult != null && _authResult.ExpiresIn > DateTimeOffset.UtcNow.Millisecond)
+            if (_authResult != null && _authResult.ExpiresOn > DateTimeOffset.UtcNow)
                 return _authResult;
             else
             {
                 _semaphore.Wait(TimeSpan.FromMinutes(1));
 
-                if (_authResult != null && _authResult.ExpiresIn > DateTimeOffset.UtcNow.Millisecond)
+                if (_authResult != null && _authResult.ExpiresOn > DateTimeOffset.UtcNow)
                 {
                     _semaphore.Release();
                     return _authResult;
@@ -53,13 +53,13 @@ namespace CsOAuthTokenWrapper.Data.Provider
 
         public async Task<AuthResult> GetAccessTokenAsync(int timeoutBudget = 30)
         {
-            if (_authResult != null && _authResult.ExpiresIn > DateTimeOffset.UtcNow.Millisecond)
+            if (_authResult != null && _authResult.ExpiresOn > DateTimeOffset.UtcNow)
                 return _authResult;
             else
             {
                 _semaphore.Wait(TimeSpan.FromMinutes(1));
 
-                if (_authResult != null && _authResult.ExpiresIn > DateTimeOffset.UtcNow.Millisecond)
+                if (_authResult != null && _authResult.ExpiresOn > DateTimeOffset.UtcNow)
                 {
                     _semaphore.Release();
                     return _authResult;

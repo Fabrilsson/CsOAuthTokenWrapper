@@ -11,16 +11,26 @@ namespace CsOAuthTokenWrapper.Data.Result
         public string? AccessToken { get; }
 
         [JsonProperty("expires_in")]
-        public double ExpiresIn { get; }
+        public double ExpiresInSeconds { get; }
+
+        public readonly DateTime ReceivalDate;
+
+        public readonly DateTime ExpiresOn;
 
         public AuthResult(
             string? accessTokenType,
             string? accessToken,
-            double expiresIn)
+            double expiresInSeconds,
+            int expirationOffsetInSeconds = 300)
         {
             AccessTokenType = accessTokenType;
             AccessToken = accessToken;
-            ExpiresIn = expiresIn;
+            ExpiresInSeconds = expiresInSeconds;
+
+            var dateTime = DateTime.UtcNow;
+
+            ExpiresOn = dateTime.AddSeconds(ExpiresInSeconds - expirationOffsetInSeconds);
+            ReceivalDate = dateTime;
         }
     }
 }
