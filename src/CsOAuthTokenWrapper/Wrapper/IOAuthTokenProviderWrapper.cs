@@ -2,7 +2,7 @@ using CsOAuthTokenWrapper.Data.Result;
 
 namespace CsOAuthTokenWrapper.Wrapper
 {
-    public interface IOAuthTokenProviderWrapper
+    public interface IOAuthTokenProviderWrapper<T>
     {
         AuthResult AcquireToken(int timeoutBudget = 30);
 

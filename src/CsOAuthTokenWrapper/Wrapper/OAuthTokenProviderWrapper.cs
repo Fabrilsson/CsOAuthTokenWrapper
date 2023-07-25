@@ -3,7 +3,7 @@ using CsOAuthTokenWrapper.Data.Result;
 
 namespace CsOAuthTokenWrapper.Wrapper
 {
-    public class OAuthTokenProviderWrapper : IOAuthTokenProviderWrapper
+    public class OAuthTokenProviderWrapper<T> : IOAuthTokenProviderWrapper<T>
     {
         private readonly IAuthTokenProvider _authTokenProvider;
 

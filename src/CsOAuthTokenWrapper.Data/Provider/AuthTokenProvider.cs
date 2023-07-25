@@ -5,7 +5,7 @@ using Polly.Timeout;
 
 namespace CsOAuthTokenWrapper.Data.Provider
 {
-    internal sealed class AuthTokenProvider : IAuthTokenProvider
+    public sealed class AuthTokenProvider : IAuthTokenProvider
     {
         private static readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
         private static AuthResult? _authResult;

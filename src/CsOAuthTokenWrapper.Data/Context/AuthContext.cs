@@ -5,7 +5,7 @@ using CsOAuthTokenWrapper.Data.Result;
 
 namespace CsOAuthTokenWrapper.Data.Context
 {
-    internal sealed class AuthContext : IAuthContext
+    public sealed class AuthContext : IAuthContext
     {
         private readonly IAuthNetworkClient _authNetworkClient;
         private readonly string _clientId;
