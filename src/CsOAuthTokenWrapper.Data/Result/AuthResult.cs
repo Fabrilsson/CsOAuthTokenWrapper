@@ -13,6 +13,9 @@ namespace CsOAuthTokenWrapper.Data.Result
         [JsonProperty("expires_in")]
         public double ExpiresInSeconds { get; }
 
+        [JsonProperty("client_id")]
+        public string ClientId { get; }
+
         public readonly DateTime ReceivalDate;
 
         public readonly DateTime ExpiresOn;
@@ -21,11 +24,13 @@ namespace CsOAuthTokenWrapper.Data.Result
             string? accessTokenType,
             string? accessToken,
             double expiresInSeconds,
+            string clientId,
             int expirationOffsetInSeconds = 300)
         {
             AccessTokenType = accessTokenType;
             AccessToken = accessToken;
             ExpiresInSeconds = expiresInSeconds;
+            ClientId = clientId;
 
             var dateTime = DateTime.UtcNow;
 

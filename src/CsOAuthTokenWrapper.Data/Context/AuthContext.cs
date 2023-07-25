@@ -14,6 +14,8 @@ namespace CsOAuthTokenWrapper.Data.Context
         private readonly string _grantType;
         private readonly string _oAuthTokenEndPoint;
 
+        public string ContextId { get; }
+
         public AuthContext(
             IAuthNetworkClient authNetworkClient,
             IAuthenticationOptions authenticationOptions)
@@ -24,6 +26,8 @@ namespace CsOAuthTokenWrapper.Data.Context
             _scope = authenticationOptions.Scope;
             _grantType = authenticationOptions.GrantType;
             _oAuthTokenEndPoint = authenticationOptions.OAuthTokenEndPoint;
+
+            ContextId = authenticationOptions.ClientId;
         }
 
         public async Task<AuthResult> AcquireTokenAsync()
